@@ -1,38 +1,126 @@
-.App {
+html {
+  scroll-padding-top: 6rem;
+  transition: margin-right .5s;
+}
+
+h2 {
+  margin: 1rem
+} 
+
+.tea-bar {
+  position: sticky;
+  top: 0;
+  width: 100%;
   text-align: center;
+  background-color: #215763;
+  padding: 2rem 2rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.tea-bar a {
+  display: inline;
+  padding: .5rem; 
+  margin: 0rem 1rem;
+  border-radius: .5rem;
+  text-decoration: none;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.tea-bar a:hover {
+  color: #e8d41c;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cart-img {
+  width: 20px;
+  height: 20px;
+  top: 30px;
+  right: 30px;
+  position: fixed;
 }
+
+.cart-img:hover {
+  cursor: pointer;
+}
+
+.card-grid {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 1rem;
+  margin: 0rem 1rem;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
+  border-radius: .25rem;
+  height: 10rem;
+}
+
+.card:hover {
+  box-shadow: 0 0 5px 2px #215763;
+  cursor: pointer;
+}
+
+.card p {
+  margin: 0rem 2rem;  
+}
+
+.card img {
+  height: 150px;
+  width: 150px;
+  margin: 0rem .3rem;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 1;
+}
+
+.modal {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10rem;
+  z-index: 1;
+  background-color: white;
+}
+
+#cart {
+  position: fixed;
+  margin-top: 2rem;
+  height: 100%;
+  width: 20%;
+  z-index: 1;
+  right: 0;
+  background-color: #215763;
+}
+
+/* .opened-cart { */
+/*   position: fixed; */
+/*   margin-top: 2rem; */
+/*   right: 0; */
+/*   height: 100%; */
+/*   width: 20%; */
+/*   z-index: 1; */
+/*   background-color: blue; */
+/* } */
+
+/* .opened-cart { */
+/*   animation-name: slideIn; */
+/*   animation-duration: .4s; */
+/* } */
+
+/* @keyframes slideIn { */
+/*   from {right: -300px; opacity: 0} */
+/*   to {right: 0; opacity: 1} */
+/* } */
+
