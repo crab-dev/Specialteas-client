@@ -11,7 +11,7 @@ export default function TeaCard({ card }) {
         <p>{card.tea}</p>
         <img src={tea1} />
       </div>
-      <Modal open={isOpen} onClose={() => setIsOpen(false)} tea={"boop"} />
+      <Modal open={isOpen} onClose={() => setIsOpen(false)} content={"boop"} />
     </div>
   )
 }

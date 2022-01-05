@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function Modal({ open, tea, onClose }) {
+export default function Modal({ open, content, onClose }) {
   if (!open) return null
 
   return (
@@ -8,7 +8,7 @@ export default function Modal({ open, tea, onClose }) {
       <div className="overlay" />
       <div className="modal">
         <button onClick={onClose}>Close Modal</button>
-        {tea}  
+        {content}  
       </div>
     </div>
   )
