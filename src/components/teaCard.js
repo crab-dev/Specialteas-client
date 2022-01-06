@@ -7,12 +7,11 @@ import "animate.css"
 
 const customTea = withReactContent(Swal)
 
-export default function TeaCard({ tea }) {
-  
+export default function TeaCard({ tea, addToCart }) {
   return (
     <div>
-      <div className="card" onClick={() => 
-        customTea.fire({
+      <div className="card" onClick={ async () => {
+        const result = await customTea.fire({
           html: <Modal tea={tea} />,
           showCloseButton: true,
           confirmButtonText: "Add to Cart",
@@ -20,7 +19,10 @@ export default function TeaCard({ tea }) {
             popup: "animate__animated animate__fadeInUp"
           }
         }) 
-      }>
+        if (result.isConfirmed) {
+          addToCart(tea)
+        }
+      }}>
         <p>{tea.name}</p>
         <img src={tea1} />
       </div>

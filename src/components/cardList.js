@@ -1,11 +1,11 @@
 import React from "react"
 import TeaCard from "./teaCard"
 
-export default function CardList({ teas }) {
+export default function CardList({ teas, addToCart }) {
   return ( 
     <div className="card-grid">
       {teas.map(tea => {
-        return <TeaCard tea={tea} key={tea.id} />
+        return <TeaCard tea={tea} key={tea.id} addToCart={addToCart}/>
       })}
     </div>
 
