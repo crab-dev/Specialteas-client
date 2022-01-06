@@ -50,13 +50,13 @@ function App() {
     <div>
       <TeaBar />
       <h2 id="special-teas">Special Teas</h2>
-      <CardList grid={specialTeas} />
+      <CardList teas={specialTeas} />
       <h2 id="milk-teas">Milk Teas</h2>
-      <CardList grid={milkTeas} />
+      <CardList teas={milkTeas} />
       <h2 id="slushies">Slushies</h2>
-      <CardList grid={slushies} />
+      <CardList teas={slushies} />
       <h2 id="fruit-teas">Fruit Teas</h2>
-      <CardList grid={fruitTeas} />
+      <CardList teas={fruitTeas} />
     </div>
   )
 }

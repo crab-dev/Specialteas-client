@@ -1,17 +1,30 @@
-import React, { useState } from "react"
+import React from "react"
 import Modal from "./Modal"
 import tea1 from "../images/tea1.jpg"
+import Swal from "sweetalert2"
+import withReactContent from "sweetalert2-react-content"
+import "animate.css"
 
-export default function TeaCard({ card }) {
-  const [isOpen, setIsOpen] = useState(false)
+const customTea = withReactContent(Swal)
+
+export default function TeaCard({ tea }) {
   
   return (
     <div>
-      <div className="card" onClick={() => setIsOpen(true)}>
-        <p>{card.tea}</p>
+      <div className="card" onClick={() => 
+        customTea.fire({
+          html: <Modal tea={tea} />,
+          showCloseButton: true,
+          confirmButtonText: "Add to Cart",
+          showClass: {
+            popup: "animate__animated animate__fadeInUp"
+          }
+        }) 
+      }>
+        <p>{tea.name}</p>
         <img src={tea1} />
       </div>
-      <Modal open={isOpen} onClose={() => setIsOpen(false)} content={"boop"} />
     </div>
   )
 }
+
