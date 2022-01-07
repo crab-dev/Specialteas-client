@@ -8,11 +8,13 @@ import "animate.css"
 const customTea = withReactContent(Swal)
 
 export default function TeaCard({ tea, addToCart }) {
+  const options = { selectedToppings: [] }
+
   return (
     <div>
       <div className="card" onClick={ async () => {
         const result = await customTea.fire({
-          html: <Modal tea={tea} />,
+          html: <Modal tea={tea} options={options} />,
           showCloseButton: true,
           confirmButtonText: "Add to Cart",
           showClass: {
@@ -21,6 +23,7 @@ export default function TeaCard({ tea, addToCart }) {
         }) 
         if (result.isConfirmed) {
           addToCart(tea)
+          console.log(options)
         }
       }}>
         <p>{tea.name}</p>

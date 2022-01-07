@@ -1,29 +1,37 @@
 import React, { useState } from "react"
+import { toppings } from "../toppings"
 
-export default function Modal({ tea }) {
-  const [size, setSize] = useState("")
-  const [ice, setIce] = useState("")
-  const [sugar, setSugar] = useState("")
-  const [toppings, setToppings] = useState("")
+export default function Modal({ tea, options }) {
+  // const [size, setSize] = useState("")
+  // const [ice, setIce] = useState("")
+  // const [sugar, setSugar] = useState("")
+  // const [selectedToppings, setSelectedToppings] = useState([]) 
+  const [, updateState] = React.useState()
+  const forceUpdate = React.useCallback(() => updateState({}), [])
   
   const handleSizeChange = (event) => {
-    setSize(event.target.value)
+    options.size = event.target.value
+    forceUpdate()
   }
   
   const handleIceChange = (event) => {
-    setIce(event.target.value)
+    options.ice = event.target.value
+    forceUpdate()
   }
 
   const handleSugarChange = (event) => {
-    setSugar(event.target.value)
+    options.sugar = event.target.value
+    forceUpdate()
   }
 
-  const handleToppingsChange = (event) => {
-    setToppings(event.target.value)
+  const handleCheckedChange = (index) => {
+    if (options.selectedToppings.includes(index)) {
+      options.selectedToppings = (options.selectedToppings.filter(i => i !== index))
+    } else {
+      options.selectedToppings = ([...options.selectedToppings, index])
+    }
+    forceUpdate()
   }
-
-
-  console.log(size, ice, sugar, toppings)
 
   return (
     <div className="addOns">
@@ -31,12 +39,12 @@ export default function Modal({ tea }) {
       <div>
         <h3>Size</h3>
         <label>
-          <input type="radio" id="regular" name="size" value="regular" checked={size === "regular"} onChange={handleSizeChange}/>
+          <input type="radio" id="regular" name="size" value="regular" checked={options.size === "regular"} onChange={handleSizeChange}/>
           Regular
         </label>
         <br/>
         <label>
-          <input type="radio" id="large" name="size" value="large" checked={size === "large"} onChange={handleSizeChange}/>
+          <input type="radio" id="large" name="size" value="large" checked={options.size === "large"} onChange={handleSizeChange}/>
           Large
         </label>
       </div>
@@ -44,17 +52,17 @@ export default function Modal({ tea }) {
       <div>
         <h3>Ice</h3>
         <label>
-          <input type="radio" id="regular" name="ice" value="regular ice" checked={ice === "regular ice"} onChange={handleIceChange}/>
+          <input type="radio" id="regular" name="ice" value="regular ice" checked={options.ice === "regular ice"} onChange={handleIceChange}/>
           Regular 
         </label>
         <br/>
         <label>
-          <input type="radio" id="half" name="ice" value="half ice" checked={ice === "half ice"} onChange={handleIceChange}/>
+          <input type="radio" id="half" name="ice" value="half ice" checked={options.ice === "half ice"} onChange={handleIceChange}/>
           Half 
         </label>
         <br/>
         <label>
-          <input type="radio" id="none" name="ice" value="no ice" checked={ice === "no ice"} onChange={handleIceChange}/>
+          <input type="radio" id="none" name="ice" value="no ice" checked={options.ice === "no ice"} onChange={handleIceChange}/>
           No 
         </label>
       </div>
@@ -62,74 +70,51 @@ export default function Modal({ tea }) {
       <div>
         <h3>Sugar</h3>
         <label>
-          <input type="radio" id="100" name="sugar" value="100%" checked={sugar === "100%"} onChange={handleSugarChange}/>
+          <input type="radio" id="100" name="sugar" value="100%" checked={options.sugar === "100%"} onChange={handleSugarChange}/>
           100%
         </label>
         <br/>
         <label>
-          <input type="radio" id="75" name="sugar" value="75%" checked={sugar === "75%"} onChange={handleSugarChange}/>
+          <input type="radio" id="75" name="sugar" value="75%" checked={options.sugar === "75%"} onChange={handleSugarChange}/>
           75% 
         </label>
         <br/>
         <label>
-          <input type="radio" id="50" name="sugar" value="50%" checked={sugar === "50%"} onChange={handleSugarChange}/>
+          <input type="radio" id="50" name="sugar" value="50%" checked={options.sugar === "50%"} onChange={handleSugarChange}/>
           50%
         </label>
         <br/>
         <label>
-          <input type="radio" id="25" name="sugar" value="25%" checked={sugar === "25%"} onChange={handleSugarChange}/>
+          <input type="radio" id="25" name="sugar" value="25%" checked={options.sugar === "25%"} onChange={handleSugarChange}/>
           25% 
         </label>
         <br/>
         <label>
-          <input type="radio" id="0" name="sugar" value="0%" checked={sugar === "0%"} onChange={handleSugarChange}/>
+          <input type="radio" id="0" name="sugar" value="0%" checked={options.sugar === "0%"} onChange={handleSugarChange}/>
           0% 
         </label>
       </div> 
 
       <div>
         <h3>Toppings</h3>
-        <label>
-          <input type="checkbox" id="boba" name="topping" value="boba" checked={toppings === "boba"} onChange={handleToppingsChange}/>
-          Boba
-        </label>
-        <br/>
-        <label>
-          <input type="checkbox" id="sago" name="topping" value="sago"/>
-          Sago
-        </label>
-        <br/>
-        <label>
-          <input type="checkbox" id="pudding" name="topping" value="pudding"/>
-          Pudding
-        </label>
-        <br/>
-        <label>
-          <input type="checkbox" id="coconutJelly" name="topping" value="coconutJelly"/>
-          Coconut Jelly
-        </label>
-        <br/>
-        <label>
-          <input type="checkbox" id="rainbowJelly" name="topping" value="rainbowJelly"/>
-          Rainbow Jelly
-        </label>
-        <br/>
-        <label>
-          <input type="checkbox" id="mangoStar" name="topping" value="mangoStar"/>
-          Mango Star Jelly
-        </label>
-        <br/>
-        <label>
-          <input type="checkbox" id="yogurtPop" name="topping" value="yogurtPop"/>
-          Yogurt Popping Boba
-        </label>
-        <br/>
-        <label>
-          <input type="checkbox" id="lycheePop" name="topping" value="lycheePop"/>
-          Lychee Popping Boba
-        </label>
-      </div>
-
+        {/* {createCheckboxes} */}
+        {toppings.map(({ label, price }, index) => {
+          return (
+            <label key={index}>
+              <input
+                type="checkbox"
+                id={index}
+                name={label}
+                value={label}
+                checked={options.selectedToppings.includes(index)}
+                onChange={() => handleCheckedChange(index)}
+              />
+              {label}
+              <br/>
+            </label>
+          )
+        })}
+       </div>
     </div>
   )
 }
