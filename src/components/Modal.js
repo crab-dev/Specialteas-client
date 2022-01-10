@@ -59,7 +59,7 @@ export default function Modal({ tea, options }) {
         <br/>
         <label>
           <input type="radio" id="none" name="ice" value="no ice" checked={options.ice === "no ice"} onChange={handleIceChange}/>
-          No 
+          No Ice
         </label>
       </div>
         

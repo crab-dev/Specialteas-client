@@ -8,7 +8,12 @@ import "animate.css"
 const customTea = withReactContent(Swal)
 
 export default function TeaCard({ tea, addToCart }) {
-  const options = { selectedToppings: [] }
+  let options 
+  clearSelection()
+
+  function clearSelection() {
+    options = { selectedToppings: [] }
+  }
 
   return (
     <div>
@@ -24,6 +29,7 @@ export default function TeaCard({ tea, addToCart }) {
         if (result.isConfirmed) {
           addToCart(tea, options)
         }
+        clearSelection() 
       }}>
         <p>{tea.name}</p>
         <img src={tea1} alt="tea" />

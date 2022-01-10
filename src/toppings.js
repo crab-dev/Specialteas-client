@@ -1,9 +1,3 @@
-// export const toppings = [
-//   "Boba",
-//   "Sago",
-//   "Pudding"
-// ]
-
 export const toppings = [
   {
     label: "Boba",

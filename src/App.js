@@ -48,7 +48,7 @@ function App() {
 
   const items = [] 
 
-  const addToCart = (drink, toppings) => {
+  function addToCart(drink, toppings) {
     items.push(drink, toppings)
     console.log(items)
   }
