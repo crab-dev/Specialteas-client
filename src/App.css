@@ -86,29 +86,9 @@ input {
   text-align: left;
 }
 
-.animate__animated.animate__fadeInUp {
-  --animate-duration: 250ms
+.animate__animated {
+  --animate-duration: 300ms
 }
-
-/* .overlay { */
-/*   position: fixed; */
-/*   top: 0; */
-/*   left: 0; */
-/*   right: 0; */
-/*   bottom: 0; */
-/*   background-color: rgba(0, 0, 0, .5); */
-/*   z-index: 1; */
-/* } */
-
-/* .modal { */
-/*   position: fixed; */
-/*   top: 30%; */
-/*   left: 50%; */
-/*   transform: translate(-50%, -50%); */
-/*   padding: 10rem; */
-/*   z-index: 1; */
-/*   background-color: white; */
-/* } */
 
 #cart {
   position: fixed;
@@ -119,24 +99,3 @@ input {
   right: 0;
   background-color: #215763;
 }
-
-/* .opened-cart { */
-/*   position: fixed; */
-/*   margin-top: 2rem; */
-/*   right: 0; */
-/*   height: 100%; */
-/*   width: 20%; */
-/*   z-index: 1; */
-/*   background-color: blue; */
-/* } */
-
-/* .opened-cart { */
-/*   animation-name: slideIn; */
-/*   animation-duration: .4s; */
-/* } */
-
-/* @keyframes slideIn { */
-/*   from {right: -300px; opacity: 0} */
-/*   to {right: 0; opacity: 1} */
-/* } */
-

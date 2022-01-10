@@ -46,16 +46,16 @@ function App() {
     fetchData()
   }, [])
 
-  const cart = []
+  const items = [] 
 
   const addToCart = (drink, toppings) => {
-    cart.push(drink, toppings)
-    console.log(cart)
+    items.push(drink, toppings)
+    console.log(items)
   }
 
   return (
     <div>
-      <TeaBar />
+      <TeaBar items={items} />
       <h2 id="special-teas">Special Teas</h2>
       <CardList teas={specialTeas} addToCart={addToCart}/>
       <h2 id="milk-teas">Milk Teas</h2>

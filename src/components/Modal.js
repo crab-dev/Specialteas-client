@@ -1,11 +1,7 @@
-import React, { useState } from "react"
+import React from "react"
 import { toppings } from "../toppings"
 
 export default function Modal({ tea, options }) {
-  // const [size, setSize] = useState("")
-  // const [ice, setIce] = useState("")
-  // const [sugar, setSugar] = useState("")
-  // const [selectedToppings, setSelectedToppings] = useState([]) 
   const [, updateState] = React.useState()
   const forceUpdate = React.useCallback(() => updateState({}), [])
   
@@ -97,7 +93,6 @@ export default function Modal({ tea, options }) {
 
       <div>
         <h3>Toppings</h3>
-        {/* {createCheckboxes} */}
         {toppings.map(({ label, price }, index) => {
           return (
             <label key={index}>

@@ -22,12 +22,11 @@ export default function TeaCard({ tea, addToCart }) {
           }
         }) 
         if (result.isConfirmed) {
-          addToCart(tea)
-          console.log(options)
+          addToCart(tea, options)
         }
       }}>
         <p>{tea.name}</p>
-        <img src={tea1} />
+        <img src={tea1} alt="tea" />
       </div>
     </div>
   )
