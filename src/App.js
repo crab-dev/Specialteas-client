@@ -8,6 +8,7 @@ function App() {
   const [milkTeas, setMilkTeas] = useState([])
   const [slushies, setSlushies] = useState([])
   const [fruitTeas, setFruitTeas] = useState([])
+  const [items, setItems] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,16 +47,18 @@ function App() {
     fetchData()
   }, [])
 
-  const items = [] 
-
-  function addToCart(drink, toppings) {
-    items.push(drink, toppings)
+  function addToCart(item) {
+    setItems(prevItems => [...prevItems, item])
     console.log(items)
+  }
+
+  function clearCart() {
+    setItems([])
   }
 
   return (
     <div>
-      <TeaBar items={items} />
+      <TeaBar items={items} clearCart={clearCart} />
       <h2 className="title" id="special-teas">Special Teas</h2>
       <CardList teas={specialTeas} addToCart={addToCart}/>
       <h2 className="title" id="milk-teas">Milk Teas</h2>

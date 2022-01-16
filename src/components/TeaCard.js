@@ -25,18 +25,18 @@ const Added = Swal.mixin({
 })
 
 export default function TeaCard({ tea, addToCart }) {
-  let options 
+  let item 
   clearSelection()
 
   function clearSelection() {
-    options = { selectedToppings: [] }
+    item = { tea, selectedToppings: [] }
   }
 
   return (
     <div>
       <div className="card" onClick={ async () => {
         const result = await customTea.fire({
-          html: <Modal tea={tea} options={options} />,
+          html: <Modal tea={tea} item={item} />,
           showCloseButton: true,
           confirmButtonText: "Add to Cart",
           showClass: {
@@ -45,7 +45,7 @@ export default function TeaCard({ tea, addToCart }) {
           confirmButtonColor: "#215763",
         }) 
         if (result.isConfirmed) {
-          addToCart(tea, options)
+          addToCart(item)
           Added.fire({
             icon: "success",
             title: "Added to cart!"
