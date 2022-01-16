@@ -35,12 +35,12 @@ export default function Modal({ tea, options }) {
       <div>
         <h3>Size</h3>
         <label>
-          <input type="radio" id="regular" name="size" value="regular" checked={options.size === "regular"} onChange={handleSizeChange}/>
+          <input type="radio" id="regular" name="size" value="Regular" checked={options.size === "Regular"} onChange={handleSizeChange}/>
           Regular
         </label>
         <br/>
         <label>
-          <input type="radio" id="large" name="size" value="large" checked={options.size === "large"} onChange={handleSizeChange}/>
+          <input type="radio" id="large" name="size" value="Large" checked={options.size === "Large"} onChange={handleSizeChange}/>
           Large
         </label>
       </div>
@@ -48,17 +48,17 @@ export default function Modal({ tea, options }) {
       <div>
         <h3>Ice</h3>
         <label>
-          <input type="radio" id="regular" name="ice" value="regular ice" checked={options.ice === "regular ice"} onChange={handleIceChange}/>
+          <input type="radio" id="regular" name="ice" value="Regular Ice" checked={options.ice === "Regular Ice"} onChange={handleIceChange}/>
           Regular 
         </label>
         <br/>
         <label>
-          <input type="radio" id="half" name="ice" value="half ice" checked={options.ice === "half ice"} onChange={handleIceChange}/>
+          <input type="radio" id="half" name="ice" value="Half Ice" checked={options.ice === "Half Ice"} onChange={handleIceChange}/>
           Half 
         </label>
         <br/>
         <label>
-          <input type="radio" id="none" name="ice" value="no ice" checked={options.ice === "no ice"} onChange={handleIceChange}/>
+          <input type="radio" id="none" name="ice" value="No Ice" checked={options.ice === "No Ice"} onChange={handleIceChange}/>
           No Ice
         </label>
       </div>
@@ -66,34 +66,34 @@ export default function Modal({ tea, options }) {
       <div>
         <h3>Sugar</h3>
         <label>
-          <input type="radio" id="100" name="sugar" value="100%" checked={options.sugar === "100%"} onChange={handleSugarChange}/>
+          <input type="radio" id="100" name="sugar" value="100% Sugar" checked={options.sugar === "100% Sugar"} onChange={handleSugarChange}/>
           100%
         </label>
         <br/>
         <label>
-          <input type="radio" id="75" name="sugar" value="75%" checked={options.sugar === "75%"} onChange={handleSugarChange}/>
+          <input type="radio" id="75" name="sugar" value="75% Sugar" checked={options.sugar === "75% Sugar"} onChange={handleSugarChange}/>
           75% 
         </label>
         <br/>
         <label>
-          <input type="radio" id="50" name="sugar" value="50%" checked={options.sugar === "50%"} onChange={handleSugarChange}/>
+          <input type="radio" id="50" name="sugar" value="50% Sugar" checked={options.sugar === "50% Sugar"} onChange={handleSugarChange}/>
           50%
         </label>
         <br/>
         <label>
-          <input type="radio" id="25" name="sugar" value="25%" checked={options.sugar === "25%"} onChange={handleSugarChange}/>
+          <input type="radio" id="25" name="sugar" value="25% Sugar" checked={options.sugar === "25% Sugar"} onChange={handleSugarChange}/>
           25% 
         </label>
         <br/>
         <label>
-          <input type="radio" id="0" name="sugar" value="0%" checked={options.sugar === "0%"} onChange={handleSugarChange}/>
+          <input type="radio" id="0" name="sugar" value="0% Sugar" checked={options.sugar === "0% Sugar"} onChange={handleSugarChange}/>
           0% 
         </label>
       </div> 
 
       <div>
         <h3>Toppings</h3>
-        {toppings.map(({ label, price }, index) => {
+        {toppings.map(({ label }, index) => {
           return (
             <label key={index}>
               <input

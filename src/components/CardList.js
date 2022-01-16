@@ -1,5 +1,5 @@
 import React from "react"
-import TeaCard from "./teaCard"
+import TeaCard from "./TeaCard"
 
 export default function CardList({ teas, addToCart }) {
   return ( 

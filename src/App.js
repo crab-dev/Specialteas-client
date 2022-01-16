@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import './App.css';
 import TeaBar from "./components/TeaBar"
-import CardList from "./components/cardList"
+import CardList from "./components/CardList"
 
 function App() {
   const [specialTeas, setSpecialTeas] = useState([])
@@ -56,13 +56,13 @@ function App() {
   return (
     <div>
       <TeaBar items={items} />
-      <h2 id="special-teas">Special Teas</h2>
+      <h2 className="title" id="special-teas">Special Teas</h2>
       <CardList teas={specialTeas} addToCart={addToCart}/>
-      <h2 id="milk-teas">Milk Teas</h2>
+      <h2 className="title" id="milk-teas">Milk Teas</h2>
       <CardList teas={milkTeas} addToCart={addToCart}/>
-      <h2 id="slushies">Slushies</h2>
+      <h2 className="title" id="slushies">Slushies</h2>
       <CardList teas={slushies} addToCart={addToCart}/>
-      <h2 id="fruit-teas">Fruit Teas</h2>
+      <h2 className="title" id="fruit-teas">Fruit Teas</h2>
       <CardList teas={fruitTeas} addToCart={addToCart}/>
     </div>
   )

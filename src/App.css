@@ -4,7 +4,7 @@ html {
 }
 
 h2 {
-  margin: 1rem
+  margin: 1.5rem
 } 
 
 .tea-bar {
@@ -14,6 +14,7 @@ h2 {
   text-align: center;
   background-color: #215763;
   padding: 2rem 2rem;
+  box-shadow: 2px 2px 10px 2px black;
 }
 
 .tea-bar a {
@@ -22,11 +23,11 @@ h2 {
   margin: 0rem 1rem;
   border-radius: .5rem;
   text-decoration: none;
-  color: white;
+  color: white
 }
 
 .tea-bar a:hover {
-  color: #e8d41c;
+  color: #e09f3e;
   cursor: pointer;
 }
 
@@ -69,9 +70,10 @@ h2 {
 }
 
 .card img {
-  height: 150px;
-  width: 150px;
-  margin: 0rem .3rem;
+  height: 140px;
+  width: 190px;
+  margin: 0rem .6rem;
+  border-radius: .25rem;
 }
 
 label {
@@ -99,3 +101,14 @@ input {
   right: 0;
   background-color: #215763;
 }
+
+.cart-content {
+  text-align: left;
+  line-height: .5;
+}
+
+.cart-content p {
+  text-indent: 1rem;
+}
+
+

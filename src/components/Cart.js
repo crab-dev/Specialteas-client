@@ -7,12 +7,16 @@ import "animate.css"
 const cartModal = withReactContent(Swal)
 
 export default function Cart({ items }) {
+  // function clearCart() {
+  //   items = []
+  // }
+
   return (
     <div>
-      <img className="cart-img" src={cart} alt="Cart" onClick={() =>
-        cartModal.fire({
+      <img className="cart-img" src={cart} alt="Cart" onClick={ async () => {
+        const result = cartModal.fire({
           title: "Cart",
-          html: <div>
+          html: <div className="cart-content">
             {items.map((item) => 
               <div key={item.id}>
                 <h3>{item.name}</h3>
@@ -21,18 +25,28 @@ export default function Cart({ items }) {
                 <p>{item.sugar}</p>
               </div>
             )}
+            <h4 align="right">Total:</h4>
           </div>,
           showCloseButton: true,
+          showDenyButton: true,
           confirmButtonText: "Check out",
+          denyButtonText: "Clear cart",
+          reverseButtons: true,
           position: "top-right",
-          heightAuto: false,
+          width: "20rem",
           showClass: {
             popup: "animate__animated animate__fadeInRight"
           },
           hideClass: {
             popup: "animate__animated animate__fadeOutRight"
           },
-      })} />
+          confirmButtonColor: "#215763",
+          denyButtonColor: "#98c1d9"
+        })
+        // if (result.isDenied) {
+        //   clearCart()
+        // }
+      }} />
     </div>
   )
 }
