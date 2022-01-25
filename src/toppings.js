@@ -5,7 +5,7 @@ export const toppings = [
   },
   {
     label: "Sago",
-    price: .50
+    price: .75
   },
   {
     label: "Pudding",
@@ -21,7 +21,7 @@ export const toppings = [
   }, 
   {
     label: "Mango Star Jelly",
-    price: .50
+    price: .75
   }, 
   {
     label: "Yogurt Popping Boba",

@@ -3,29 +3,42 @@ import cart from "../images/cart.png"
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
 import "animate.css"
-import { toppings } from "../toppings.js"
+import { formatter } from "../priceFormatter"
 
 const cartModal = withReactContent(Swal)
 
 export default function Cart({ items, clearCart }) {
+  function calculatePrice(item) {
+    let total = 0
+    for (const topping of item.selectedToppings) {
+      total += topping.price 
+    }
+    console.log(total)
+    return total
+  }
+
   return (
     <div>
       <img className="cart-img" src={cart} alt="Cart" onClick={ async () => {
         const result = await cartModal.fire({
           title: "Cart",
           html: <div className="cart-content">
-            {items.map((item) => 
-              <div key={item.id}>
-                <h3>{item.tea.name}</h3>
-                <p>{item.size}</p>
-                <p>{item.ice}</p>
-                <p>{item.sugar}</p>
-                {item.selectedToppings.map((i) => 
-                <p>{toppings[i].label}</p>
-                )}
-              </div>
-            )}
-            <h4 align="right">Total:</h4>
+            {items.map((item) => {
+              item.total = item.tea.price + calculatePrice(item)
+              return (
+                <div key={item.id}>
+                  <h3>{item.tea.name}</h3>
+                  <p>{item.size}</p>
+                  <p>{item.ice}</p>
+                  <p>{item.sugar}</p>
+                  {item.selectedToppings.map((topping) => 
+                  <p>{topping.label}</p>
+                  )}
+                  <h4 align="right">{formatter.format(item.total)}</h4>
+                </div>
+              )
+            })}
+            <h4 align="right">Total: {formatter.format(items.reduce((total, item) => total + item.total, 0))}</h4>
           </div>,
           showCloseButton: true,
           showDenyButton: true,

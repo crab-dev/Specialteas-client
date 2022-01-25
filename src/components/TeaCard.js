@@ -1,20 +1,16 @@
-import React from "react"
+import React, { useState } from "react"
 import Modal from "./Modal"
+import { sizeOptions, iceOptions, sugarOptions } from "../itemOptions"
+import { formatter } from "../priceFormatter"
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
 import "animate.css"
 
 const customTea = withReactContent(Swal)
 
-const formatter = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD", 
-  minimumFractionDigits: 2
-})
-
 const Added = Swal.mixin({
   toast: true,
-  position: "top-end",
+  position: "top-start",
   showConfirmButton: false,
   timer: 1500,
   width: "16rem",
@@ -25,18 +21,17 @@ const Added = Swal.mixin({
 })
 
 export default function TeaCard({ tea, addToCart }) {
-  let item 
-  clearSelection()
+  const [item, setItem] = useState({ tea, size: sizeOptions[0], ice: iceOptions[0], sugar: sugarOptions[0], selectedToppings: [] })
 
   function clearSelection() {
-    item = { tea, selectedToppings: [] }
+    setItem({tea, size: sizeOptions[0], ice: iceOptions[0], sugar: sugarOptions[0], selectedToppings: []})
   }
 
   return (
     <div>
       <div className="card" onClick={ async () => {
         const result = await customTea.fire({
-          html: <Modal tea={tea} item={item} />,
+          html: <Modal tea={tea} item={item} setItem={setItem} />,
           showCloseButton: true,
           confirmButtonText: "Add to Cart",
           showClass: {

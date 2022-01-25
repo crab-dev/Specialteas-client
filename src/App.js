@@ -15,33 +15,33 @@ function App() {
       const response = await fetch("http://localhost:5000")
       const data = await response.json()
 
-      const specialTeas = []
-      const milkTeas = []
-      const slushies = []
-      const fruitTeas = []
+      const _specialTeas = []
+      const _milkTeas = []
+      const _slushies = []
+      const _fruitTeas = []
 
       for (const tea of data) {
         switch (tea.kind) {
           case "special":
-            specialTeas.push(tea) 
+            _specialTeas.push(tea) 
             break
           case "milk":
-            milkTeas.push(tea)
+            _milkTeas.push(tea)
             break
           case "slushie":
-            slushies.push(tea)
+            _slushies.push(tea)
             break
           case "fruit":
-            fruitTeas.push(tea)
+            _fruitTeas.push(tea)
             break
         default: 
           console.log("No more teas!")
         }
       }
-      setMilkTeas(milkTeas)
-      setSpecialTeas(specialTeas)
-      setSlushies(slushies)
-      setFruitTeas(fruitTeas)
+      setMilkTeas(_milkTeas)
+      setSpecialTeas(_specialTeas)
+      setSlushies(_slushies)
+      setFruitTeas(_fruitTeas)
     }
 
     fetchData()
@@ -49,7 +49,6 @@ function App() {
 
   function addToCart(item) {
     setItems(prevItems => [...prevItems, item])
-    console.log(items)
   }
 
   function clearCart() {
