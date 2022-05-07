@@ -48,6 +48,7 @@ function App() {
   }, [])
 
   function addToCart(item) {
+    // setItems(item)
     setItems(prevItems => [...prevItems, item])
   }
 

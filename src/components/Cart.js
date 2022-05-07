@@ -20,20 +20,22 @@ export default function Cart({ items, clearCart }) {
   return (
     <div>
       <img className="cart-img" src={cart} alt="Cart" onClick={ async () => {
+        console.log("items: ", items)
         const result = await cartModal.fire({
           title: "Cart",
           html: <div className="cart-content">
+            {/* <p>{items}</p> */}
             {items.map((item) => {
-              item.total = item.tea.price + calculatePrice(item)
+              // item.total = item.tea.price + calculatePrice(item)
               return (
                 <div key={item.id}>
-                  <h3>{item.tea.name}</h3>
+                  {/* <h3>{item.tea.name}</h3> */}
                   <p>{item.size}</p>
-                  <p>{item.ice}</p>
-                  <p>{item.sugar}</p>
-                  {item.selectedToppings.map((topping) => 
-                  <p>{topping.label}</p>
-                  )}
+                  {/* <p>{item.ice}</p> */}
+                  {/* <p>{item.sugar}</p> */}
+                  {/* {item.selectedToppings.map((topping) => */} 
+                  {/* <p>{topping.label}</p> */}
+                  {/* )} */}
                   <h4 align="right">{formatter.format(item.total)}</h4>
                 </div>
               )
