@@ -13,7 +13,6 @@ export default function Cart({ items, clearCart }) {
     for (const topping of item.selectedToppings) {
       total += topping.price 
     }
-    console.log(total)
     return total
   }
 
@@ -24,18 +23,17 @@ export default function Cart({ items, clearCart }) {
         const result = await cartModal.fire({
           title: "Cart",
           html: <div className="cart-content">
-            {/* <p>{items}</p> */}
-            {items.map((item) => {
-              // item.total = item.tea.price + calculatePrice(item)
+            {items.map((item, i) => {
+              item.total = item.tea.price + calculatePrice(item)
               return (
-                <div key={item.id}>
-                  {/* <h3>{item.tea.name}</h3> */}
+                <div key={i}>
+                  <h3>{item.tea.name}</h3>
                   <p>{item.size}</p>
-                  {/* <p>{item.ice}</p> */}
-                  {/* <p>{item.sugar}</p> */}
-                  {/* {item.selectedToppings.map((topping) => */} 
-                  {/* <p>{topping.label}</p> */}
-                  {/* )} */}
+                  <p>{item.ice}</p>
+                  <p>{item.sugar}</p>
+                  {item.selectedToppings.map((topping, i) => 
+                  <p key={i}>{topping.label}</p>
+                  )}
                   <h4 align="right">{formatter.format(item.total)}</h4>
                 </div>
               )
