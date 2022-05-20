@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import './App.css';
 import TeaBar from "./components/TeaBar"
 import CardList from "./components/CardList"
+import Routing from "./components/Routing"
 
 function App() {
   const [specialTeas, setSpecialTeas] = useState([])

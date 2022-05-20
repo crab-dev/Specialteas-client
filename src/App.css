@@ -111,4 +111,7 @@ input {
   text-indent: 1rem;
 }
 
+.checkout {
+  all: unset
+}
 

@@ -4,6 +4,7 @@ import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
 import "animate.css"
 import { formatter } from "../priceFormatter"
+import { useNavigate } from "react-router-dom"
 
 const cartModal = withReactContent(Swal)
 
@@ -15,6 +16,8 @@ export default function Cart({ items, clearCart }) {
     }
     return total
   }
+
+  let navigate = useNavigate()
 
   return (
     <div>
@@ -56,7 +59,9 @@ export default function Cart({ items, clearCart }) {
           confirmButtonColor: "#215763",
           denyButtonColor: "#98c1d9"
         })
-        if (result.isDenied) {
+        if (result.isConfirmed) {
+          navigate("/checkout")
+        } else if (result.isDenied) {
           clearCart()
         }
       }} />
