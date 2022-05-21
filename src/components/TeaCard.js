@@ -27,7 +27,7 @@ export default function TeaCard({ tea, addToCart }) {
         const result = await customTea.fire({
           html: <Modal tea={tea} onSelected={item => {selected = item }} />,
           showCloseButton: true,
-          confirmButtonText: "Add to Cart",
+          confirmButtonText: <b>Add to Cart | {formatter.format(tea.price)}</b>,
           showClass: {
             popup: "animate__animated animate__fadeInUp"
           },

@@ -30,18 +30,19 @@ export default function Cart({ items, clearCart }) {
               item.total = item.tea.price + calculatePrice(item)
               return (
                 <div key={i}>
-                  <h3>{item.tea.name}</h3>
+                  <h3>{item.tea.name} x{item.quantity}</h3>
+                  {/* <p>x{item.quantity}</p> */}
                   <p>{item.size}</p>
                   <p>{item.ice}</p>
                   <p>{item.sugar}</p>
                   {item.selectedToppings.map((topping, i) => 
                   <p key={i}>{topping.label}</p>
                   )}
-                  <h4 align="right">{formatter.format(item.total)}</h4>
+                  <h4 align="right">{formatter.format(item.total * item.quantity)}</h4>
                 </div>
               )
             })}
-            <h4 align="right">Total: {formatter.format(items.reduce((total, item) => total + item.total, 0))}</h4>
+            <h4 align="right">Total: {formatter.format(items.reduce((total, item) => total + (item.total * item.quantity), 0))}</h4>
           </div>,
           showCloseButton: true,
           showDenyButton: true,

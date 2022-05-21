@@ -115,3 +115,20 @@ input {
   all: unset
 }
 
+.qtyButton {
+  color: white;
+  background-color: #215763;
+  border-radius: .5rem;
+  font-size: 1.25rem;
+  box-shadow: none;
+  width: 2rem;
+}
+
+.qtyButton:hover {
+  cursor: pointer;
+  box-shadow:  #215763;
+}
+
+.qty {
+  margin: .5rem .5rem .5rem .7rem
+}

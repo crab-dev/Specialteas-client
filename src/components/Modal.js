@@ -4,12 +4,24 @@ import { formatter } from "../priceFormatter"
 import { sizeOptions, iceOptions, sugarOptions } from "../itemOptions"
 
 export default function Modal({ tea, onSelected }) {
-  // const [item, setItem] = useState({size: ""})
+  const [item, setItem] = useState({ tea, quantity: 1, size: sizeOptions[0], ice: iceOptions[0], sugar: sugarOptions[0], selectedToppings: [] })
+  // const [item, setItem] = useState({ tea, size: sizeOptions[0], ice: iceOptions[0], sugar: sugarOptions[0], selectedToppings: [] })
 
-  const [item, setItem] = useState({ tea, size: sizeOptions[0], ice: iceOptions[0], sugar: sugarOptions[0], selectedToppings: [] })
   useEffect(() => {
     onSelected(item) 
   })
+
+  const incQuantity = () => setItem(prevItem => {
+    return {...prevItem, quantity: item.quantity + 1}
+  })  
+
+  const decQuantity = () => setItem(prevItem => {
+    if (item.quantity <= 1) {
+      return {...prevItem, quantity: item.quantity} 
+    } else {
+      return {...prevItem, quantity: item.quantity - 1}
+    }
+  }) 
 
   const handleSizeChange = (event) => {
     setItem(prevItem => {
@@ -96,7 +108,14 @@ export default function Modal({ tea, onSelected }) {
             </label>
           )
         })}
+        <br/>
        </div>
+
+       <div>
+         {/* <h3>+ {item.quantity} -</h3> */}
+         <button className="qtyButton" onClick={incQuantity}>+</button><span className="qty">{item.quantity}</span> <button className="qtyButton" onClick={decQuantity}>-</button>
+       </div>
+
     </div>
   )
 }
