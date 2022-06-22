@@ -27,14 +27,14 @@ export default function TeaCard({ tea, addToCart }) {
         const result = await customTea.fire({
           html: <Modal tea={tea} onSelected={item => {selected = item }} />,
           showCloseButton: true,
-          confirmButtonText: <b>Add to Cart | {formatter.format(tea.price)}</b>,
+          confirmButtonText: <b>Add to Cart</b>,
+          // confirmButtonText: <b>Add to Cart | {formatter.format(tea.price)}</b>,
           showClass: {
             popup: "animate__animated animate__fadeInUp"
           },
           confirmButtonColor: "#215763",
         }) 
         if (result.isConfirmed) {
-          console.log(selected)
           addToCart(selected)
           Added.fire({
             icon: "success",

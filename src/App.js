@@ -49,7 +49,6 @@ function App() {
   }, [])
 
   function addToCart(item) {
-    // setItems(item)
     setItems(prevItems => [...prevItems, item])
   }
 
@@ -57,9 +56,13 @@ function App() {
     setItems([])
   }
 
+  const removeItem = (i) => setItems(prevItems => {
+    return prevItems.filter((_, index) => i !== index)
+  })
+  
   return (
     <div>
-      <TeaBar items={items} clearCart={clearCart} />
+      <TeaBar items={items} clearCart={clearCart} removeItem={removeItem}/>
       <h2 className="title" id="special-teas">Special Teas</h2>
       <CardList teas={specialTeas} addToCart={addToCart}/>
       <h2 className="title" id="milk-teas">Milk Teas</h2>

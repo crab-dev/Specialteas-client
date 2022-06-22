@@ -115,7 +115,21 @@ input {
   all: unset
 }
 
-.qtyButton {
+.quantity {
+  display: inline;
+}
+
+.minus {
+  color: white;
+  background-color: #215763;
+  border-radius: .5rem;
+  font-size: 1.25rem;
+  box-shadow: none;
+  width: 2rem;
+  float: left;
+}
+
+.plus {
   color: white;
   background-color: #215763;
   border-radius: .5rem;
@@ -124,7 +138,12 @@ input {
   width: 2rem;
 }
 
-.qtyButton:hover {
+.minus:hover {
+  cursor: pointer;
+  box-shadow:  #215763;
+}
+
+.plus:hover {
   cursor: pointer;
   box-shadow:  #215763;
 }
@@ -132,3 +151,19 @@ input {
 .qty {
   margin: .5rem .5rem .5rem .7rem
 }
+.edit, .remove {
+  font-size: 1rem;
+  margin: .5rem;
+  font-weight: bold;
+}
+
+.edit {
+  margin-left: 0rem
+}
+
+.edit:hover, .remove:hover {
+  color: #215763;
+  cursor: pointer;
+  text-decoration-line: underline;
+}
+

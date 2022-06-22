@@ -5,7 +5,6 @@ import { sizeOptions, iceOptions, sugarOptions } from "../itemOptions"
 
 export default function Modal({ tea, onSelected }) {
   const [item, setItem] = useState({ tea, quantity: 1, size: sizeOptions[0], ice: iceOptions[0], sugar: sugarOptions[0], selectedToppings: [] })
-  // const [item, setItem] = useState({ tea, size: sizeOptions[0], ice: iceOptions[0], sugar: sugarOptions[0], selectedToppings: [] })
 
   useEffect(() => {
     onSelected(item) 
@@ -111,9 +110,11 @@ export default function Modal({ tea, onSelected }) {
         <br/>
        </div>
 
-       <div>
+       <div className="quantity">
          {/* <h3>+ {item.quantity} -</h3> */}
-         <button className="qtyButton" onClick={incQuantity}>+</button><span className="qty">{item.quantity}</span> <button className="qtyButton" onClick={decQuantity}>-</button>
+         <button className="minus" onClick={decQuantity}>-</button>
+         <span className="qty">{item.quantity}</span>
+         <button className="plus" onClick={incQuantity}>+</button>
        </div>
 
     </div>

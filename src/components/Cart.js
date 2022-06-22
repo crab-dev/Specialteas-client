@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom"
 
 const cartModal = withReactContent(Swal)
 
-export default function Cart({ items, clearCart }) {
+export default function Cart({ items, clearCart, removeItem }) {
   function calculatePrice(item) {
     let total = 0
     for (const topping of item.selectedToppings) {
@@ -38,6 +38,7 @@ export default function Cart({ items, clearCart }) {
                   {item.selectedToppings.map((topping, i) => 
                   <p key={i}>{topping.label}</p>
                   )}
+                  <span className="edit">Edit</span><span className="remove" onClick={() => removeItem(i)}>Remove</span>
                   <h4 align="right">{formatter.format(item.total * item.quantity)}</h4>
                 </div>
               )
