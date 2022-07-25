@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 import './App.css';
 import TeaBar from "./components/TeaBar"
 import CardList from "./components/CardList"
-import Routing from "./components/Routing"
 
 function App() {
   const [specialTeas, setSpecialTeas] = useState([])
@@ -12,6 +11,7 @@ function App() {
   const [items, setItems] = useState([])
 
   useEffect(() => {
+
     const fetchData = async () => {
       const response = await fetch("http://localhost:5000")
       const data = await response.json()
@@ -62,7 +62,7 @@ function App() {
   
   return (
     <div>
-      <TeaBar items={items} clearCart={clearCart} removeItem={removeItem}/>
+      <TeaBar items={items} setItems={setItems} clearCart={clearCart} removeItem={removeItem} />
       <h2 className="title" id="special-teas">Special Teas</h2>
       <CardList teas={specialTeas} addToCart={addToCart}/>
       <h2 className="title" id="milk-teas">Milk Teas</h2>

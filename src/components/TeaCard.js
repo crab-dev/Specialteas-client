@@ -1,49 +1,20 @@
-import React from "react"
+import React, { useState } from "react"
 import Modal from "./Modal"
 import { formatter } from "../priceFormatter"
-import Swal from "sweetalert2"
-import withReactContent from "sweetalert2-react-content"
-import "animate.css"
-
-const customTea = withReactContent(Swal)
-
-const Added = Swal.mixin({
-  toast: true,
-  position: "top-start",
-  showConfirmButton: false,
-  timer: 1500,
-  width: "16rem",
-  didOpen: (toast) => {
-    toast.addEventListener("mouseenter", Swal.stopTimer)
-    toast.addEventListener("mouseleave", Swal.resumeTimer)
-  }
-})
+import { sizeOptions, iceOptions, sugarOptions } from "../itemOptions"
 
 export default function TeaCard({ tea, addToCart }) {
+  const [item, setItem] = useState({ tea, quantity: 1, size: sizeOptions[0], ice: iceOptions[0], sugar: sugarOptions[0], selectedToppings: [] })
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
     <div>
-      <div className="card" onClick={ async () => {
-        let selected
-        const result = await customTea.fire({
-          html: <Modal tea={tea} onSelected={item => {selected = item }} />,
-          showCloseButton: true,
-          confirmButtonText: <b>Add to Cart</b>,
-          // confirmButtonText: <b>Add to Cart | {formatter.format(tea.price)}</b>,
-          showClass: {
-            popup: "animate__animated animate__fadeInUp"
-          },
-          confirmButtonColor: "#215763",
-        }) 
-        if (result.isConfirmed) {
-          addToCart(selected)
-          Added.fire({
-            icon: "success",
-            title: "Added to cart!"
-          })
-        }
-      }}>
+      <div className="card" onClick={() => setIsOpen(true)}>
         <p>{tea.name}<br />{formatter.format(tea.price)}</p>
         <img src={tea.image} alt="tea" />
+      </div>
+      <div>
+        { isOpen && <Modal className="modal" open={isOpen} onClose={() => setIsOpen(false)} tea={tea} item={item} setItem={setItem} /> }
       </div>
     </div>
   )

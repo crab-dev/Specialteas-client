@@ -1,14 +1,16 @@
-import React from "react"
 import Cart from "./Cart"
+import cart from "../images/cart.png"
 
-export default function TeaBar({ items, clearCart, removeItem }) {
+export default function TeaBar({ items, clearCart, removeItem, addToCart, tea }) {
   return (
     <div className="tea-bar">
       <a href="#special-teas">Special Teas</a>
       <a href="#milk-teas">Milk Teas</a>
       <a href="#slushies">Slushies</a>
       <a href="#fruit-teas">Fruit Teas</a>
-      <Cart items={items} clearCart={clearCart} removeItem={removeItem}/>
+      <img className="cart-img" src={cart} alt="Cart" onClick={ async () => {
+        <Cart items={items} clearCart={clearCart} removeItem={removeItem} addToCart={addToCart} tea={tea}/>
+      }} />
     </div>
   )
 }
