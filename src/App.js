@@ -11,7 +11,6 @@ function App() {
   const [items, setItems] = useState([])
 
   useEffect(() => {
-
     const fetchData = async () => {
       const response = await fetch("http://localhost:5000")
       const data = await response.json()

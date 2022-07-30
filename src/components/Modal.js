@@ -1,10 +1,16 @@
-import React, {useState, useEffect} from "react"
+import React from "react"
 import ReactDom from "react-dom"
 import { toppings } from "../toppings"
 import { formatter } from "../priceFormatter"
 import { sizeOptions, iceOptions, sugarOptions } from "../itemOptions"
 
-export default function Modal({ tea, item, setItem, onClose }) {
+export default function Modal({ tea, item, setItem, onClose, onAdd, addToCart }) {
+  const addItem = () => {
+    addToCart(item)
+    onClose()
+    onAdd()
+  }
+
   const incQuantity = () => setItem(prevItem => {
     return {...prevItem, quantity: item.quantity + 1}
   })  
@@ -115,7 +121,7 @@ export default function Modal({ tea, item, setItem, onClose }) {
            <button className="plus" onClick={incQuantity}>+</button>
          </div>
         <div>
-          <button className="add-btn">Add to Cart</button>
+          <button className="add-btn" onClick={() => addItem()}>Add to Cart</button>
         </div>
       </div>
     </div>,
