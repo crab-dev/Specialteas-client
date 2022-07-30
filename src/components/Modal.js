@@ -4,11 +4,15 @@ import { toppings } from "../toppings"
 import { formatter } from "../priceFormatter"
 import { sizeOptions, iceOptions, sugarOptions } from "../itemOptions"
 
-export default function Modal({ tea, item, setItem, onClose, onAdd, addToCart }) {
+export default function Modal({ tea, item, setItem, onClose, onAdd, addToCart, setIsAdded }) {
   const addItem = () => {
     addToCart(item)
     onClose()
     onAdd()
+
+    setTimeout(() => {
+      setIsAdded(false)
+    }, 2000)
   }
 
   const incQuantity = () => setItem(prevItem => {

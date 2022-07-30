@@ -16,10 +16,10 @@ export default function TeaCard({ tea, addToCart }) {
         <img src={tea.image} alt="tea" />
       </div>
       <div>
-        { isOpen && <Modal className="modal" open={isOpen} onClose={() => setIsOpen(false)} onAdd={() => setIsAdded(true)} tea={tea} item={item} setItem={setItem} addToCart={addToCart} /> }
+        { isOpen && <Modal className="modal" open={isOpen} onClose={() => setIsOpen(false)} setIsAdded={setIsAdded} onAdd={() => setIsAdded(true)} tea={tea} item={item} setItem={setItem} addToCart={addToCart} /> }
       </div>
       <div>
-        { isAdded && <Toast onClose={() => setIsAdded(false)}/> }
+        { isAdded && <Toast /> }
       </div>
     </div>
   )
