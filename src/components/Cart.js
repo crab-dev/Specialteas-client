@@ -1,9 +1,8 @@
 import React from "react"
 import ReactDom from "react-dom"
-import "animate.css"
 import { formatter } from "../priceFormatter"
 
-export default function Cart({ items, clearCart, removeItem, addToCart, tea }) {
+export default function Cart({ items, clearCart, removeItem, addToCart, tea, onClose }) {
   function calculatePrice(item) {
     let total = 0
     for (const topping of item.selectedToppings) {
@@ -14,7 +13,9 @@ export default function Cart({ items, clearCart, removeItem, addToCart, tea }) {
 
   return ReactDom.createPortal(
     <div>
+      <div className="overlay" onClick={onClose}/>
       <div className="cart-content">
+        <h1>Cart</h1>
         {items.map((item, i) => {
           item.total = item.tea.price + calculatePrice(item)
           return (
@@ -31,7 +32,7 @@ export default function Cart({ items, clearCart, removeItem, addToCart, tea }) {
             </div>
           )
         })}
-        <h4 align="right">Total: {formatter.format(items.reduce((total, item) => total + (item.total * item.quantity), 0))}</h4>
+        <h4>Total: {formatter.format(items.reduce((total, item) => total + (item.total * item.quantity), 0))}</h4>
       </div>
     </div>,
     document.getElementById("cart-portal")

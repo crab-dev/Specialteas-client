@@ -143,28 +143,45 @@ input {
   background-color: #215763;
 }
 
-.animate__animated {
-  --animate-duration: 300ms
-}
-
-#cart {
-  position: fixed;
-  margin-top: 2rem;
-  border-radius: .5rem;
-  height: 100%;
-  width: 20%;
-  z-index: 1;
-  right: 0;
-  background-color: #215763;
-}
+/* #cart { */
+/*   position: fixed; */
+/*   margin-top: 2rem; */
+/*   border-radius: .5rem; */
+/*   height: 100%; */
+/*   width: 20%; */
+/*   z-index: 1; */
+/*   right: 0; */
+/*   background-color: #215763; */
+/* } */
 
 .cart-content {
+  position: fixed;
+  z-index: 1000;
+  background: #fff;
   text-align: left;
   line-height: .5;
+  padding: 5px 30px 30px 30px;
+  top: 12px;
+  right: 12px;
+  border-radius: 3px;
+  width: 250px;
+  height: 94vh;
+  overflow: auto;
+  transition: transform .6s ease-in-out;
+  animation: toast-in-right .7s;
+}
+
+.cart-content h1 {
+  text-align: center;
+  line-height: 1.5rem;
 }
 
 .cart-content p {
   text-indent: 1rem;
+}
+
+.cart-content h4 {
+  text-align: right;
 }
 
 .checkout {

@@ -13,7 +13,7 @@ export default function TeaBar({ items, clearCart, removeItem, addToCart, tea })
       <a href="#fruit-teas">Fruit Teas</a>
       <img className="cart-img" src={cart} alt="Cart" onClick={() => setIsCartOpen(true)} />
       <div>
-        { isCartOpen && <Cart items={items} clearCart={clearCart} removeItem={removeItem} addToCart={addToCart} tea={tea}/> }
+        { isCartOpen && <Cart items={items} clearCart={clearCart} removeItem={removeItem} addToCart={addToCart} tea={tea} onClose={() => setIsCartOpen(false)}/> }
       </div>
     </div>
   )

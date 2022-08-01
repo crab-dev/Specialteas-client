@@ -12,7 +12,7 @@ export default function Modal({ tea, item, setItem, onClose, onAdd, addToCart, s
 
     setTimeout(() => {
       setIsAdded(false)
-    }, 2000)
+    }, 1200)
   }
 
   const incQuantity = () => setItem(prevItem => {
