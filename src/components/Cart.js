@@ -1,8 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 import ReactDom from "react-dom"
 import { formatter } from "../priceFormatter"
+import Modal from "./Modal"
 
-export default function Cart({ items, clearCart, removeItem, addToCart, tea, onClose }) {
+export default function Cart({ items, clearCart, removeItem, onClose }) {
+  const [isOpen, setIsOpen] = useState(false)
+
   function calculatePrice(item) {
     let total = 0
     for (const topping of item.selectedToppings) {
@@ -27,12 +30,15 @@ export default function Cart({ items, clearCart, removeItem, addToCart, tea, onC
               {item.selectedToppings.map((topping, i) => 
               <p key={i}>{topping.label}</p>
               )}
-              <span className="edit">Edit</span><span className="remove" onClick={() => removeItem(i)}>Remove</span>
-              <h4 align="right">{formatter.format(item.total * item.quantity)}</h4>
+              <span className="edit" onClick={() => setIsOpen(true)}>Edit</span><span className="remove" onClick={() => removeItem(i)}>Remove</span>
+              <h4>{formatter.format(item.total * item.quantity)}</h4>
             </div>
           )
         })}
-        <h4>Total: {formatter.format(items.reduce((total, item) => total + (item.total * item.quantity), 0))}</h4>
+        <h4 className="total">Total: {formatter.format(items.reduce((total, item) => total + (item.total * item.quantity), 0))}</h4>
+      </div>
+      <div>
+        {/* { isOpen && <Modal className="modal" />} */}
       </div>
     </div>,
     document.getElementById("cart-portal")

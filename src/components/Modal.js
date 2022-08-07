@@ -4,11 +4,12 @@ import { toppings } from "../toppings"
 import { formatter } from "../priceFormatter"
 import { sizeOptions, iceOptions, sugarOptions } from "../itemOptions"
 
-export default function Modal({ tea, item, setItem, onClose, onAdd, addToCart, setIsAdded }) {
+export default function Modal({ tea, item, setItem, onClose, onAdd, addToCart, setIsAdded, setDefaultOptions }) {
   const addItem = () => {
     addToCart(item)
     onClose()
     onAdd()
+    setDefaultOptions()
 
     setTimeout(() => {
       setIsAdded(false)

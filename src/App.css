@@ -95,7 +95,7 @@ input {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }
 
@@ -160,28 +160,48 @@ input {
   background: #fff;
   text-align: left;
   line-height: .5;
-  padding: 5px 30px 30px 30px;
   top: 12px;
   right: 12px;
   border-radius: 3px;
-  width: 250px;
-  height: 94vh;
+  width: 300px;
+  height: 98vh;
   overflow: auto;
   transition: transform .6s ease-in-out;
   animation: toast-in-right .7s;
 }
 
 .cart-content h1 {
+  color: white;
   text-align: center;
-  line-height: 1.5rem;
+  position: sticky;
+  background-color: #215763;
+  padding: 1.5rem;
+  top: 0;
+  margin-top: 0;
+}
+
+.cart-content h3 {
+  padding-left: 30px;
 }
 
 .cart-content p {
+  padding-left: 30px;
   text-indent: 1rem;
 }
 
 .cart-content h4 {
   text-align: right;
+  padding-right: 30px
+}
+
+.total {
+  padding-right: 30px;
+  text-align: right;
+  position: sticky;
+  bottom: 0;
+  background-color: #215763;
+  color: white;
+  padding: 1rem;
 }
 
 .checkout {
@@ -231,7 +251,7 @@ input {
 }
 
 .edit {
-  margin-left: 0rem
+  padding-left: 30px;
 }
 
 .edit:hover, .remove:hover {
